@@ -14,6 +14,7 @@ public class SimpleCaptureActivity extends CaptureActivity {
     protected Activity mActivity = this;
     private AlertDialog mDialog;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         mActivity = this;
