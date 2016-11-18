@@ -27,7 +27,6 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -54,7 +53,6 @@ public class CaptureActivity extends Activity implements Callback {
     private CaptureActivity mActivity;
 
     private CaptureActivityHandler handler;
-    private ViewfinderView viewfinderView;
     private boolean hasSurface;
     private Vector<BarcodeFormat> decodeFormats;
     private String characterSet;
@@ -64,9 +62,12 @@ public class CaptureActivity extends Activity implements Callback {
     private static final float BEEP_VOLUME = 0.10f;
     private boolean vibrate;
     private boolean flashLightOpen = false;
-    private ImageView backIbtn;
-    private ImageButton flashIbtn;
-    private TextView galleryTv;
+
+    private ImageView backButton;
+    private ImageView ivFlashButton;
+    private TextView tvGallery;
+    private ViewfinderView viewfinderView;
+
 
     /**
      * Called when the activity is first created.
@@ -120,8 +121,8 @@ public class CaptureActivity extends Activity implements Callback {
             handler.quitSynchronously();
             handler = null;
         }
-        if (flashIbtn != null) {
-            flashIbtn.setImageResource(R.drawable.ic_flash_off_white_24dp);
+        if (ivFlashButton != null) {
+            ivFlashButton.setImageResource(R.drawable.ic_flash_off);
         }
         CameraManager.get().closeDriver();
     }
@@ -144,7 +145,6 @@ public class CaptureActivity extends Activity implements Callback {
             Cursor cursor = getContentResolver().query(inputUri, proj, null, null, null);
             if (cursor.moveToFirst()) {
                 String path = cursor.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA));
-                // FIXME: 16/9/17 Photo图片为空
                 Result result = QrUtils.decodeImage(path);
                 if (result != null) {
                     if (BuildConfig.DEBUG) Log.d(TAG, result.getText());
@@ -219,31 +219,31 @@ public class CaptureActivity extends Activity implements Callback {
     protected void initView() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.qr_camera);
+        setContentView(R.layout.activity_capture);
 
-        backIbtn = (ImageView) findViewById(R.id.back_ibtn);
-        viewfinderView = (ViewfinderView) findViewById(R.id.viewfinder_view);
-        flashIbtn = (ImageButton) findViewById(R.id.flash_ibtn);
-        galleryTv = (TextView) findViewById(R.id.gallery_tv);
+        backButton = (ImageView) findViewById(R.id.id_back_btn);
+        viewfinderView = (ViewfinderView) findViewById(R.id.id_view_viewfinder);
+        ivFlashButton = (ImageView) findViewById(R.id.id_flash_btn);
+        tvGallery = (TextView) findViewById(R.id.id_tv_gallery);
 
-        backIbtn.setOnClickListener(new View.OnClickListener() {
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mActivity.finish();
             }
         });
-        flashIbtn.setOnClickListener(new View.OnClickListener() {
+        ivFlashButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (flashLightOpen) {
-                    flashIbtn.setImageResource(R.drawable.ic_flash_off_white_24dp);
+                    ivFlashButton.setImageResource(R.drawable.ic_flash_off);
                 } else {
-                    flashIbtn.setImageResource(R.drawable.ic_flash_on_white_24dp);
+                    ivFlashButton.setImageResource(R.drawable.ic_flash_on);
                 }
                 toggleFlashLight();
             }
         });
-        galleryTv.setOnClickListener(new View.OnClickListener() {
+        tvGallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openGallery();
