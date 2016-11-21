@@ -14,7 +14,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:background="@color/qr_app_bar"
         android:minHeight="?android:attr/actionBarSize">
 
@@ -31,9 +31,19 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:text="返回"
+            android:layout_toRightOf="@id/id_back_btn"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            tools:textColor="@android:color/white" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:gravity="center"
+            android:layout_centerVertical="true"
             android:text="扫一扫"
             android:textColor="@android:color/white"
             android:textSize="16sp"
