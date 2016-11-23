@@ -26,7 +26,7 @@
             android:background="@null"
             android:minHeight="?android:attr/actionBarSize"
             android:minWidth="?android:attr/actionBarSize"
-            android:src="@drawable/ic_back" />
+            android:src="@mipmap/ic_back" />
 
         <TextView
             android:layout_width="match_parent"
@@ -35,7 +35,7 @@
             android:text="返回"
             android:layout_toRightOf="@id/id_back_btn"
             android:textColor="@android:color/white"
-            android:textSize="16sp"
+            android:textSize="14sp"
             tools:textColor="@android:color/white" />
 
         <TextView
@@ -57,6 +57,7 @@
             android:layout_centerVertical="true"
             android:paddingRight="12dp"
             android:text="相册"
+            android:textSize="14sp"
             android:textColor="@android:color/white" />
     </RelativeLayout>
 
@@ -64,7 +65,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="48dp">
+        android:layout_marginBottom="36dp">
 
         <ImageView
             android:id="@+id/id_flash_btn"
@@ -72,7 +73,7 @@
             android:layout_height="48dp"
             android:layout_centerHorizontal="true"
             android:layout_centerInParent="true"
-            android:src="@drawable/ic_flash_off" />
+            android:src="@mipmap/ic_flash_off" />
 
     </RelativeLayout>
 
@@ -83,10 +84,11 @@
         lj:qr_angleColor="@color/qr_blue"
         lj:qr_errorHint="请允许访问摄像头后重试"
         lj:qr_hint="将二维码/条形码置于框内即自动扫描"
-        android:layout_marginTop="48dp"
         lj:qr_offsetX="0"
-        lj:qr_offsetY="-120"
+        lj:qr_offsetY="-180"
         lj:qr_showPossiblePoint="false"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="48dp"
         lj:qr_textErrorHintColor="@android:color/white"
         lj:qr_textHintColor="@android:color/darker_gray" />
 

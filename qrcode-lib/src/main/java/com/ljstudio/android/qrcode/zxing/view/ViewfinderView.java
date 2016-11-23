@@ -30,12 +30,11 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.google.zxing.ResultPoint;
+import com.ljstudio.android.qrcode.R;
+import com.ljstudio.android.qrcode.zxing.camera.CameraManager;
 
 import java.util.Collection;
 import java.util.HashSet;
-
-import com.ljstudio.android.qrcode.R;
-import com.ljstudio.android.qrcode.zxing.camera.CameraManager;
 
 
 /**
@@ -127,6 +126,7 @@ public final class ViewfinderView extends View {
             // Android Studio中预览时和未获得相机权限时都为null
             int screenWidth = getResources().getDisplayMetrics().widthPixels;
             int screenHeight = getResources().getDisplayMetrics().heightPixels;
+
             int width = 675;
             int height = 675;
             int leftOffset = (screenWidth - width) / 2;
@@ -137,8 +137,12 @@ public final class ViewfinderView extends View {
                     topOffset + height + RECT_OFFSET_Y);
 //            return;
         }
+
         int width = canvas.getWidth();
         int height = canvas.getHeight();
+//        int height = width;
+        System.out.println("width-->" + width);
+        System.out.println("height-->" + height);
 
         // Draw the exterior (i.e. outside the framing rect) darkened
         paint.setColor(resultBitmap != null ? resultColor : maskColor);
@@ -193,6 +197,7 @@ public final class ViewfinderView extends View {
         possibleResultPoints.add(point);
     }
 
+    //画边角
     private void drawAngle(Canvas canvas, Rect frame) {
         int angleLength = 50;
         int angleWidth = 10;

@@ -120,7 +120,7 @@ public class CaptureActivity extends Activity implements Callback {
             handler = null;
         }
         if (ivFlashButton != null) {
-            ivFlashButton.setImageResource(R.drawable.ic_flash_off);
+            ivFlashButton.setImageResource(R.mipmap.ic_flash_off);
         }
         CameraManager.get().closeDriver();
     }
@@ -234,9 +234,9 @@ public class CaptureActivity extends Activity implements Callback {
             @Override
             public void onClick(View v) {
                 if (flashLightOpen) {
-                    ivFlashButton.setImageResource(R.drawable.ic_flash_off);
+                    ivFlashButton.setImageResource(R.mipmap.ic_flash_off);
                 } else {
-                    ivFlashButton.setImageResource(R.drawable.ic_flash_on);
+                    ivFlashButton.setImageResource(R.mipmap.ic_flash_on);
                 }
                 toggleFlashLight();
             }

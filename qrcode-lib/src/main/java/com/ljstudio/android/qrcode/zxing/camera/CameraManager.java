@@ -28,6 +28,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.SurfaceHolder;
 
+import com.ljstudio.android.qrcode.util.DensityUtil;
 import com.ljstudio.android.qrcode.zxing.view.ViewfinderView;
 
 import java.io.IOException;
@@ -224,27 +225,30 @@ public final class CameraManager {
             if (screenResolution == null) {
                 return null;
             }
+
             if (camera == null) {
                 return null;
             }
+
             int width = screenResolution.x * 3 / 4;
             if (width < MIN_FRAME_WIDTH) {
                 width = MIN_FRAME_WIDTH;
             } else if (width > MAX_FRAME_WIDTH) {
                 width = MAX_FRAME_WIDTH;
             }
+
             int height = screenResolution.y * 3 / 4;
             if (height < MIN_FRAME_HEIGHT) {
                 height = MIN_FRAME_HEIGHT;
             } else if (height > MAX_FRAME_HEIGHT) {
                 height = MAX_FRAME_HEIGHT;
             }
+
             int leftOffset = (screenResolution.x - width) / 2;
             int topOffset = (screenResolution.y - height) / 2;
-            framingRect = new Rect(leftOffset + offsetX,
-                    topOffset + offsetY,
-                    leftOffset + width + offsetX,
-                    topOffset + height + offsetY);
+            framingRect = new Rect(leftOffset + offsetX, topOffset + offsetY, leftOffset + width + offsetX, topOffset + height + offsetY);
+//            framingRect = new Rect(0, 0, DensityUtil.getScreenWidth(context), DensityUtil.getScreenWidth(context));
+
             Log.d(TAG, "Calculated framing rect: " + framingRect);
         }
         return framingRect;
@@ -261,15 +265,23 @@ public final class CameraManager {
             Rect rect = new Rect(getFramingRect(ViewfinderView.RECT_OFFSET_X, ViewfinderView.RECT_OFFSET_Y));
             Point cameraResolution = configManager.getCameraResolution();
             Point screenResolution = configManager.getScreenResolution();
+
             //modify here
 //      rect.left = rect.left * cameraResolution.x / screenResolution.x;
 //      rect.right = rect.right * cameraResolution.x / screenResolution.x;
 //      rect.top = rect.top * cameraResolution.y / screenResolution.y;
 //      rect.bottom = rect.bottom * cameraResolution.y / screenResolution.y;
+
             rect.left = rect.left * cameraResolution.y / screenResolution.x;
             rect.right = rect.right * cameraResolution.y / screenResolution.x;
             rect.top = rect.top * cameraResolution.x / screenResolution.y;
             rect.bottom = rect.bottom * cameraResolution.x / screenResolution.y;
+
+            rect.left = 0;
+            rect.right = DensityUtil.getScreenWidth(context);
+            rect.top = 0;
+            rect.bottom = DensityUtil.getScreenHeight(context);
+
             framingRectInPreview = rect;
         }
         return framingRectInPreview;
