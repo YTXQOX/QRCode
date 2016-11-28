@@ -158,7 +158,6 @@ final class CameraConfigurationManager {
         // 下句第二参数要根据竖屏修改
         cameraResolution = getCameraResolution(parameters, screenResolutionForCamera);
 
-
         //cameraResolution = getCameraResolution(parameters, screenResolution);
         Log.d(TAG, "Camera resolution: " + screenResolution);
 

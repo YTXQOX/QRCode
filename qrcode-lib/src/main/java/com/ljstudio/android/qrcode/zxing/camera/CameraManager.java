@@ -28,7 +28,6 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.SurfaceHolder;
 
-import com.ljstudio.android.qrcode.util.DensityUtil;
 import com.ljstudio.android.qrcode.zxing.view.ViewfinderView;
 
 import java.io.IOException;
@@ -215,7 +214,7 @@ public final class CameraManager {
      * far enough away to ensure the image will be in focus.
      *
      * @return The rectangle to draw on screen in window coordinates.
-     *
+     * <p>
      * 获取扫描框显示位置 默认位置为屏幕中间
      */
     public Rect getFramingRect(int offsetX, int offsetY) {
@@ -257,7 +256,7 @@ public final class CameraManager {
     /**
      * Like {@link #getFramingRect} but coordinates are in terms of the preview frame,
      * not UI / screen.
-     *
+     * <p>
      * 获取扫描实际有效区域
      */
     public Rect getFramingRectInPreview() {
@@ -267,20 +266,20 @@ public final class CameraManager {
             Point screenResolution = configManager.getScreenResolution();
 
             //modify here
-//      rect.left = rect.left * cameraResolution.x / screenResolution.x;
-//      rect.right = rect.right * cameraResolution.x / screenResolution.x;
-//      rect.top = rect.top * cameraResolution.y / screenResolution.y;
-//      rect.bottom = rect.bottom * cameraResolution.y / screenResolution.y;
+//            rect.left = rect.left * cameraResolution.x / screenResolution.x;
+//            rect.right = rect.right * cameraResolution.x / screenResolution.x;
+//            rect.top = rect.top * cameraResolution.y / screenResolution.y;
+//            rect.bottom = rect.bottom * cameraResolution.y / screenResolution.y;
 
             rect.left = rect.left * cameraResolution.y / screenResolution.x;
             rect.right = rect.right * cameraResolution.y / screenResolution.x;
             rect.top = rect.top * cameraResolution.x / screenResolution.y;
             rect.bottom = rect.bottom * cameraResolution.x / screenResolution.y;
 
-            rect.left = 0;
-            rect.right = DensityUtil.getScreenWidth(context);
-            rect.top = 0;
-            rect.bottom = DensityUtil.getScreenHeight(context);
+//            rect.left = 0;
+//            rect.right = DensityUtil.getScreenWidth(context) - DensityUtil.dip2px(context, 21);
+//            rect.top = DensityUtil.dip2px(context, 42);
+//            rect.bottom = DensityUtil.getScreenHeight(context) - DensityUtil.dip2px(context, 42);
 
             framingRectInPreview = rect;
         }
@@ -321,6 +320,14 @@ public final class CameraManager {
         Rect rect = getFramingRectInPreview();
         int previewFormat = configManager.getPreviewFormat();
         String previewFormatString = configManager.getPreviewFormatString();
+
+        System.out.println("buildLuminanceSource-->width-->" + width);
+        System.out.println("buildLuminanceSource-->height-->" + height);
+        System.out.println("buildLuminanceSource-->rect.left-->" + rect.left);
+        System.out.println("buildLuminanceSource-->rect.top-->" + rect.top);
+        System.out.println("buildLuminanceSource-->rect.width()-->" + rect.width());
+        System.out.println("buildLuminanceSource-->rect.height()-->" + rect.height());
+
         switch (previewFormat) {
             // This is the standard Android format which all devices are REQUIRED to support.
             // In theory, it's the only one we should ever care about.
@@ -341,6 +348,16 @@ public final class CameraManager {
         throw new IllegalArgumentException("Unsupported picture format: " +
                 previewFormat + '/' + previewFormatString);
     }
+
+//    public PlanarYUVLuminanceSource buildLuminanceSource(byte[] data, int width, int height) {
+//        Rect rect = getFramingRectInPreview();
+//        if (rect == null) {
+//            return null;
+//        }
+//        // Go ahead and assume it's YUV rather than die.
+//        return new PlanarYUVLuminanceSource(data, width, height, rect.left, rect.top,
+//                rect.width(), rect.height(), false);
+//    }
 
     public Context getContext() {
         return context;
@@ -395,6 +412,7 @@ public final class CameraManager {
 
     /**
      * 检查是否获得摄像头权限
+     *
      * @return
      */
     public int checkCameraPermission() {
@@ -410,6 +428,7 @@ public final class CameraManager {
 
     /**
      * 是否已开启预览模式
+     *
      * @return
      */
     public boolean isPreviewing() {

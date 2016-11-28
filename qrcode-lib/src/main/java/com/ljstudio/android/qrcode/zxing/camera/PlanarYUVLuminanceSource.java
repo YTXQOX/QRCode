@@ -41,6 +41,13 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
                                     int width, int height) {
         super(width, height);
 
+//        Log.i("YUV-->dataWidth", "-->" + dataWidth);
+//        Log.i("YUV-->dataHeight", "-->" + dataHeight);
+//        Log.i("YUV-->left", "-->" + left);
+//        Log.i("YUV-->top", "-->" + top);
+//        Log.i("YUV-->width", "-->" + width);
+//        Log.i("YUV-->height", "-->" + height);
+
         if (left + width > dataWidth || top + height > dataHeight) {
             throw new IllegalArgumentException("Crop rectangle does not fit within image data.");
         }
