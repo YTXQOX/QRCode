@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:lj="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    tools:context="com.ljstudio.android.qrcode.CaptureActivity">
+
+    <SurfaceView
+        android:id="@+id/preview_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
 
     <RelativeLayout
-        android:id="@+id/id_layout_tool_bar"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@color/qr_app_bar"
@@ -38,7 +43,6 @@
                 android:layout_toRightOf="@id/id_back_btn"
                 android:paddingRight="10dp"
                 android:text="返回"
-                android:visibility="gone"
                 android:textColor="@android:color/white"
                 android:textSize="14sp"
                 tools:textColor="@android:color/white" />
@@ -67,6 +71,34 @@
             android:textSize="14sp" />
     </RelativeLayout>
 
-    <include
-        layout="@layout/activity_capture2"/>
-</LinearLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|end">
+
+        <ImageView
+            android:id="@+id/id_flash_btn"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/ic_flash_off" />
+
+    </RelativeLayout>
+
+    <com.ljstudio.android.qrcode.zxing.view.ViewfinderView
+        android:id="@+id/id_view_viewfinder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="48dp"
+        lj:qr_angleColor="@color/qr_blue"
+        lj:qr_errorHint="请允许访问摄像头后重试"
+        lj:qr_hint="将二维码/条形码置于框内即自动扫描"
+        lj:qr_offsetX="0"
+        lj:qr_offsetY="-180"
+        lj:qr_showPossiblePoint="false"
+        lj:qr_textErrorHintColor="@android:color/white"
+        lj:qr_textHintColor="@android:color/darker_gray" />
+
+</FrameLayout>
