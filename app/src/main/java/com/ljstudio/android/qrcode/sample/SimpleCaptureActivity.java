@@ -2,12 +2,16 @@ package com.ljstudio.android.qrcode.sample;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.ljstudio.android.qrcode.CaptureActivity;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 public class SimpleCaptureActivity extends CaptureActivity {
 
@@ -19,6 +23,8 @@ public class SimpleCaptureActivity extends CaptureActivity {
     public void onCreate(Bundle savedInstanceState) {
         mActivity = this;
         super.onCreate(savedInstanceState);
+
+        setStatusBar(ContextCompat.getColor(this, R.color.colorPrimary));
     }
 
     @Override
@@ -59,5 +65,15 @@ public class SimpleCaptureActivity extends CaptureActivity {
     @Override
     protected void onResume() {
         super.onResume();
+    }
+
+    private void setStatusBar(int color) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            SystemBarTintManager tintManager = new SystemBarTintManager(this);
+            tintManager.setStatusBarTintEnabled(true);
+            tintManager.setNavigationBarTintEnabled(false);
+            tintManager.setTintColor(color);
+        }
     }
 }

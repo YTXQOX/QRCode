@@ -127,8 +127,8 @@ public final class ViewfinderView extends View {
             int screenWidth = getResources().getDisplayMetrics().widthPixels;
             int screenHeight = getResources().getDisplayMetrics().heightPixels;
 
-            int width = 675;
-            int height = 675;
+            int width = 540;
+            int height = 540;
             int leftOffset = (screenWidth - width) / 2;
             int topOffset = (screenHeight - height) / 2;
             frame = new Rect(leftOffset + RECT_OFFSET_X,
@@ -200,13 +200,14 @@ public final class ViewfinderView extends View {
     //画边角
     private void drawAngle(Canvas canvas, Rect frame) {
         int angleLength = 50;
-        int angleWidth = 10;
+        int angleWidth = 8;
         int top = frame.top;
         int bottom = frame.bottom;
         int left = frame.left;
         int right = frame.right;
 
         paint.setColor(angleColor);
+
         // 左上
         canvas.drawRect(left - angleWidth, top - angleWidth, left + angleLength, top, paint);
         canvas.drawRect(left - angleWidth, top - angleWidth, left, top + angleLength, paint);
@@ -252,7 +253,7 @@ public final class ViewfinderView extends View {
             canvas.drawRect(frame.left + 10, frame.top, frame.right - 10, frame.top + 10, paint);
 
             translateY += 5f;
-            if (translateY >= 670) {
+            if (translateY >= 540) {
                 translateY = 5f;
             }
         }

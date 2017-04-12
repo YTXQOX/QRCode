@@ -29,7 +29,7 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="72dp"
         android:layout_gravity="bottom|center_horizontal">
 
         <ImageView
@@ -37,8 +37,16 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_centerHorizontal="true"
-            android:layout_centerInParent="true"
+            android:layout_marginBottom="8dp"
             android:src="@mipmap/ic_flash_off" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_flash_btn"
+            android:gravity="center_horizontal"
+            android:text="支持扫码登录、备案扫码、发票扫码"
+            android:textColor="@android:color/darker_gray"/>
 
     </RelativeLayout>
 
