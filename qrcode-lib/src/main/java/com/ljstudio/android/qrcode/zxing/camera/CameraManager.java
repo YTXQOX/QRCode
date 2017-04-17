@@ -28,6 +28,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.SurfaceHolder;
 
+import com.ljstudio.android.qrcode.util.DensityUtil;
 import com.ljstudio.android.qrcode.zxing.view.ViewfinderView;
 
 import java.io.IOException;
@@ -42,10 +43,10 @@ public final class CameraManager {
 
     static final int SDK_INT; // Later we can use Build.VERSION.SDK_INT
     private static final String TAG = CameraManager.class.getSimpleName();
-    private static final int MIN_FRAME_WIDTH = 240;
-    private static final int MIN_FRAME_HEIGHT = 240;
-    private static final int MAX_FRAME_WIDTH = 540;
-    private static final int MAX_FRAME_HEIGHT = 540; // = 5/8 * 1080
+    private static int MIN_FRAME_WIDTH = 320;
+    private static int MIN_FRAME_HEIGHT = 320;
+    private static int MAX_FRAME_WIDTH = 540;
+    private static int MAX_FRAME_HEIGHT = 540; // = 5/8 * 1080
     private static CameraManager cameraManager;
 
     static {
@@ -91,6 +92,9 @@ public final class CameraManager {
 
         previewCallback = new PreviewCallback(configManager, useOneShotPreviewCallback);
         autoFocusCallback = new AutoFocusCallback();
+
+        MAX_FRAME_WIDTH = DensityUtil.getScreenWidth(context) * 3 / 5;
+        MAX_FRAME_HEIGHT = MAX_FRAME_WIDTH;
     }
 
     /**

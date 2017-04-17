@@ -31,6 +31,7 @@ import android.view.View;
 
 import com.google.zxing.ResultPoint;
 import com.ljstudio.android.qrcode.R;
+import com.ljstudio.android.qrcode.util.DensityUtil;
 import com.ljstudio.android.qrcode.zxing.camera.CameraManager;
 
 import java.util.Collection;
@@ -73,9 +74,14 @@ public final class ViewfinderView extends View {
     private float translateY = 5f;
     private int cameraPermission = PackageManager.PERMISSION_DENIED;
 
+    private Context mContext;
+
+
     // This constructor is used when the class is built from an XML resource.
     public ViewfinderView(Context context, AttributeSet attrs) {
         super(context, attrs);
+
+        this.mContext = context;
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.qr_ViewfinderView);
         angleColor = typedArray.getColor(R.styleable.qr_ViewfinderView_qr_angleColor, Color.WHITE);
@@ -252,8 +258,9 @@ public final class ViewfinderView extends View {
             canvas.translate(0, translateY);
             canvas.drawRect(frame.left + 10, frame.top, frame.right - 10, frame.top + 10, paint);
 
+            int height = DensityUtil.getScreenWidth(mContext) * 3 / 5;
             translateY += 5f;
-            if (translateY >= 540) {
+            if (translateY >= height) {
                 translateY = 5f;
             }
         }
