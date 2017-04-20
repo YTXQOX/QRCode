@@ -233,7 +233,7 @@ public final class ViewfinderView extends View {
             paint.setColor(hintColor);
             paint.setTextSize(36);
             String text = hint;
-            canvas.drawText(hint, frame.centerX() - text.length() * 36 / 2, frame.bottom + 35 + 20, paint);
+//            canvas.drawText(hint, frame.centerX() - text.length() * 36 / 2, frame.bottom + 35 + 20, paint);
         } else {
             paint.setColor(errorHintColor);
             paint.setTextSize(36);
