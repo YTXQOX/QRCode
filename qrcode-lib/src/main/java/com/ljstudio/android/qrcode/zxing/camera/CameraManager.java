@@ -276,9 +276,9 @@ public final class CameraManager {
 //            rect.bottom = rect.bottom * cameraResolution.y / screenResolution.y;
 
             rect.left = rect.left * cameraResolution.y / screenResolution.x;
-            rect.top = rect.top * cameraResolution.x / screenResolution.y + 150;
+            rect.top = rect.top * cameraResolution.x / screenResolution.y + 80;
             rect.right = rect.right * cameraResolution.y / screenResolution.x;
-            rect.bottom = rect.bottom * cameraResolution.x / screenResolution.y + 150;
+            rect.bottom = rect.bottom * cameraResolution.x / screenResolution.y + 80;
 
 //            rect.left = 0;
 //            rect.right = DensityUtil.getScreenWidth(context) - DensityUtil.dip2px(context, 21);
