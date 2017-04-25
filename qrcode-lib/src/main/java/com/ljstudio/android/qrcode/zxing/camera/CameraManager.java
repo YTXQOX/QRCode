@@ -252,7 +252,7 @@ public final class CameraManager {
             framingRect = new Rect(leftOffset + offsetX, topOffset + offsetY, leftOffset + width + offsetX, topOffset + height + offsetY);
 //            framingRect = new Rect(0, 0, DensityUtil.getScreenWidth(context), DensityUtil.getScreenWidth(context));
 
-            Log.d(TAG, "Calculated framing rect: " + framingRect);
+            Log.i(TAG, "Calculated framing rect: " + framingRect);
         }
         return framingRect;
     }
@@ -327,8 +327,11 @@ public final class CameraManager {
 
         System.out.println("buildLuminanceSource-->width-->" + width);
         System.out.println("buildLuminanceSource-->height-->" + height);
+
         System.out.println("buildLuminanceSource-->rect.left-->" + rect.left);
         System.out.println("buildLuminanceSource-->rect.top-->" + rect.top);
+        System.out.println("buildLuminanceSource-->rect.right-->" + rect.right);
+        System.out.println("buildLuminanceSource-->rect.bottom-->" + rect.bottom);
         System.out.println("buildLuminanceSource-->rect.width()-->" + rect.width());
         System.out.println("buildLuminanceSource-->rect.height()-->" + rect.height());
 

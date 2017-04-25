@@ -147,8 +147,12 @@ public final class ViewfinderView extends View {
         int width = canvas.getWidth();
         int height = canvas.getHeight();
 //        int height = width;
-        System.out.println("width-->" + width);
-        System.out.println("height-->" + height);
+        System.out.println("ViewfinderView-->onDraw()-->canvas.getWidth()-->" + width);
+        System.out.println("ViewfinderView-->onDraw()-->canvas.getHeight()-->" + height);
+        System.out.println("ViewfinderView-->onDraw()-->frame.left-->" + frame.left);
+        System.out.println("ViewfinderView-->onDraw()-->frame.top-->" + frame.top);
+        System.out.println("ViewfinderView-->onDraw()-->frame.right-->" + frame.right);
+        System.out.println("ViewfinderView-->onDraw()-->frame.bottom-->" + frame.bottom);
 
         // Draw the exterior (i.e. outside the framing rect) darkened
         paint.setColor(resultBitmap != null ? resultColor : maskColor);

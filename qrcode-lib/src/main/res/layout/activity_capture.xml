@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:lj="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
     android:layout_height="wrap_content">
+
+    <include
+        layout="@layout/activity_capture2"/>
 
     <RelativeLayout
         android:id="@+id/id_layout_tool_bar"
@@ -68,6 +71,4 @@
             android:textSize="14sp" />
     </RelativeLayout>
 
-    <include
-        layout="@layout/activity_capture2"/>
-</LinearLayout>
+</RelativeLayout>
