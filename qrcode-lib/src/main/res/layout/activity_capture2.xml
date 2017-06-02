@@ -45,7 +45,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/id_flash_btn"
             android:gravity="center_horizontal"
-            android:text="支持扫码登录、备案扫码、发票扫码"
+            android:textSize="13sp"
+            android:text="支持扫码登录、备案扫码、发票扫码、域名实名认证"
             android:textColor="@android:color/darker_gray"/>
 
     </RelativeLayout>

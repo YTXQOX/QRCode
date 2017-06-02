@@ -26,7 +26,6 @@ import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,7 +62,7 @@ public class CaptureActivity extends Activity implements Callback {
     private boolean flashLightOpen = false;
 
     private ImageView backButton;
-    private LinearLayout backLayout;
+    private TextView backLayout;
     private ImageView ivFlashButton;
     private TextView tvGallery;
     private ViewfinderView viewfinderView;
@@ -221,20 +220,12 @@ public class CaptureActivity extends Activity implements Callback {
 //        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_capture);
-        backLayout = (LinearLayout) findViewById(R.id.id_back_layout);
-        backButton = (ImageView) findViewById(R.id.id_back_btn);
+        backLayout = (TextView) findViewById(R.id.id_back_text);
         viewfinderView = (ViewfinderView) findViewById(R.id.id_view_viewfinder);
         ivFlashButton = (ImageView) findViewById(R.id.id_flash_btn);
         tvGallery = (TextView) findViewById(R.id.id_tv_gallery);
 
         backLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mActivity.finish();
-            }
-        });
-
-        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mActivity.finish();

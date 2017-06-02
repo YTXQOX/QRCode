@@ -260,7 +260,7 @@ public final class ViewfinderView extends View {
             paint.setColor(Color.parseColor("#0366c1"));
             scannerAlpha = (scannerAlpha + 1) % SCANNER_ALPHA.length;
             canvas.translate(0, translateY);
-            canvas.drawRect(frame.left + 10, frame.top, frame.right - 10, frame.top + 10, paint);
+            canvas.drawRect(frame.left + 10, frame.top, frame.right - 10, frame.top + 5, paint);
 
             int height = DensityUtil.getScreenWidth(mContext) * 3 / 5;
             translateY += 5f;

@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SimpleCaptureActivity.class);
                 startActivityForResult(intent, REQUEST_QR_CODE);
+                overridePendingTransition(R.anim.push_left_in, R.anim.push_right_out);
             }
         });
     }
