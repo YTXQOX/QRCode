@@ -21,6 +21,7 @@ import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -254,18 +255,23 @@ public final class ViewfinderView extends View {
             paint.setColor(laserColor);
             paint.setAlpha(SCANNER_ALPHA[scannerAlpha]);
             scannerAlpha = (scannerAlpha + 1) % SCANNER_ALPHA.length;
+            paint.setAlpha(SCANNER_ALPHA[scannerAlpha]);
             int middle = frame.height() / 2 + frame.top;
             canvas.drawRect(frame.left + 2, middle - 1, frame.right - 1, middle + 2, paint);
         } else {
             paint.setColor(Color.parseColor("#0366c1"));
             scannerAlpha = (scannerAlpha + 1) % SCANNER_ALPHA.length;
             canvas.translate(0, translateY);
-            canvas.drawRect(frame.left + 10, frame.top, frame.right - 10, frame.top + 5, paint);
+//            canvas.drawRect(frame.left + 10, frame.top, frame.right - 10, frame.top + 5, paint);
+
+            Rect rect = new Rect(frame.left + 10, frame.top, frame.right - 10, frame.top + 5);
+            Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(), R.mipmap.icon_scan_line);
+            canvas.drawBitmap(bitmap, null, rect, paint);
 
             int height = DensityUtil.getScreenWidth(mContext) * 3 / 5;
-            translateY += 5f;
+            translateY += 3f;
             if (translateY >= height) {
-                translateY = 5f;
+                translateY = 3f;
             }
         }
     }
