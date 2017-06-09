@@ -271,7 +271,7 @@ public final class ViewfinderView extends View {
             int height = DensityUtil.getScreenWidth(mContext) * 3 / 5;
             translateY += 3f;
             if (translateY >= height) {
-                translateY = 3f;
+                translateY = 10f;
             }
         }
     }
