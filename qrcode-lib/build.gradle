@@ -7,7 +7,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion '25.0.0'
 
-    resourcePrefix "activity"
+    resourcePrefix "qrcode_"
 
     defaultConfig {
         minSdkVersion 16
