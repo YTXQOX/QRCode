@@ -7,17 +7,18 @@ android {
     compileSdkVersion 25
     buildToolsVersion '25.0.0'
 
-    resourcePrefix "qrcode_"
+//    resourcePrefix "qrcode_"
 
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 1
-        versionName "0.9.4"
+        versionCode 11
+        versionName "1.1.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
+
     buildTypes {
         release {
             minifyEnabled false

@@ -204,7 +204,7 @@ public class CaptureActivity extends Activity implements Callback {
 
     protected void handleResult(String resultString) {
         if (resultString.equals("")) {
-            Toast.makeText(CaptureActivity.this, R.string.scan_failed, Toast.LENGTH_SHORT).show();
+            Toast.makeText(CaptureActivity.this, R.string.qrcode_scan_failed, Toast.LENGTH_SHORT).show();
         } else {
             Intent resultIntent = new Intent();
             Bundle bundle = new Bundle();

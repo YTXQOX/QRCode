@@ -30,7 +30,7 @@ public class SimpleCaptureActivity extends CaptureActivity {
     @Override
     protected void handleResult(String resultString) {
         if (TextUtils.isEmpty(resultString)) {
-            Toast.makeText(mActivity, R.string.scan_failed, Toast.LENGTH_SHORT).show();
+            Toast.makeText(mActivity, R.string.qrcode_scan_failed, Toast.LENGTH_SHORT).show();
             restartPreview();
         } else {
             Intent intent = new Intent(SimpleCaptureActivity.this, SecondActivity.class);
