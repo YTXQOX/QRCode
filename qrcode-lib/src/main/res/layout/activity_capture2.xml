@@ -46,7 +46,7 @@
             android:layout_below="@id/id_flash_btn"
             android:gravity="center_horizontal"
             android:textSize="13sp"
-            android:text="@string/qrcode_content"
+            android:text="支持授权登录、备案、发票、\n域名等扫码操作"
             android:textColor="@android:color/darker_gray"/>
 
     </RelativeLayout>

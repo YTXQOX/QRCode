@@ -1,5 +1,4 @@
 <resources>
     <string name="qrcode_lib_name">QRCode-lib</string>
     <string name="qrcode_scan_failed">扫描失败!</string>
-    <string name="qrcode_content">支持授权登录、备案、发票、\n域名等扫码操作</string>
 </resources>
