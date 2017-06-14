@@ -264,7 +264,7 @@ public final class ViewfinderView extends View {
             canvas.translate(0, translateY);
 //            canvas.drawRect(frame.left + 10, frame.top, frame.right - 10, frame.top + 5, paint);
 
-            Rect rect = new Rect(frame.left + 10, frame.top, frame.right - 10, frame.top + 5);
+            Rect rect = new Rect(frame.left + 10, frame.top, frame.right - 10, frame.top + 10);
             Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(), R.mipmap.icon_scan_line);
             canvas.drawBitmap(bitmap, null, rect, paint);
 
