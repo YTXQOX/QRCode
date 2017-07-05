@@ -29,8 +29,8 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="88dp"
-        android:layout_gravity="bottom|center_horizontal">
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="88dp">
 
         <ImageView
             android:id="@+id/id_flash_btn"
@@ -45,9 +45,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/id_flash_btn"
             android:gravity="center_horizontal"
-            android:textSize="13sp"
+            android:lineSpacingExtra="5dp"
             android:text="支持授权登录、备案、发票、\n域名等扫码操作"
-            android:textColor="@android:color/darker_gray"/>
+            android:textColor="@android:color/darker_gray"
+            android:textSize="13sp" />
 
     </RelativeLayout>
 
