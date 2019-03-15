@@ -12,13 +12,13 @@
         android:id="@+id/id_layout_tool_bar"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="@color/transparent"
+        android:background="@color/qr_app_bar"
         android:minHeight="?android:attr/actionBarSize">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:background="@color/transparent"
+            android:background="@color/qr_app_bar"
             android:minHeight="?android:attr/actionBarSize">
 
             <TextView
