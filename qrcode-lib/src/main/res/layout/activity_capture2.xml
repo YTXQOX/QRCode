@@ -46,7 +46,7 @@
             android:layout_below="@id/id_flash_btn"
             android:gravity="center_horizontal"
             android:lineSpacingExtra="5dp"
-            android:text="支持授权登录、备案、发票、\n域名等扫码操作"
+            android:text="支持柒牌旗下\nSKU条形码、二维码等扫码"
             android:textColor="@android:color/darker_gray"
             android:textSize="13sp" />
 
